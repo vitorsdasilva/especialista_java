@@ -54,11 +54,11 @@ public class SimuladorEmprestimo {
     System.out.print("Quantidade de parcelas: ");
     int quantidadeParcelas = entrada.nextInt();
 
-    double taxaJuros = switch ( quantidadeParcelas ){
-						case 1,2 -> 1.99;
-						case 3 -> 2.99;
-						default -> 3.99;
-					   };
+    double taxaJuros = switch (quantidadeParcelas) {
+		case 1,2 -> 1.99;
+		case 3 -> 2.99;
+		default -> 3.99;
+	};
 
     double tarifaFixa = valorEmprestimo >= 100 ? 1.50 : 0;
     double totalJuros = valorEmprestimo * (taxaJuros / 100 * quantidadeParcelas);
