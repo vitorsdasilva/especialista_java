@@ -1,20 +1,21 @@
 public class FolhaPagamento {
-    double calcularSalario(double QuantidadeHorasNormaisTrabalhadas, double ValorHoraNormal,
-                           double QuantidadeHorasExtrasTrabalhadas, double ValorHoraExtra){
 
-            /*parametros:
-                  QuantidadeHorasNormaisTrabalhadas
-                  QuantidadeHorasExtrasTrabalhadas
-                  ValorHoraNormal
-                  ValorHoraExtra
+    Funcionario funcionario;
 
-                  calcular as respectivas quantidades
-                  de horas trabalhas pelos valores da hora,
-                  somar os valores obtidos e retornar o resultado.
-     */
+    double calcularSalario(double QuantidadeHorasNormaisTrabalhadas,
+                           double QuantidadeHorasExtrasTrabalhadas, ContratoTrabalho contratoTrabalho){
 
-        double salarioDevido = QuantidadeHorasNormaisTrabalhadas * ValorHoraNormal +
-                QuantidadeHorasExtrasTrabalhadas * ValorHoraExtra;
+        double salarioDevido = QuantidadeHorasNormaisTrabalhadas * contratoTrabalho.valorHoraNormal +
+                QuantidadeHorasExtrasTrabalhadas * contratoTrabalho.valorHoraExtra;
+
+        funcionario = contratoTrabalho.varFuncionario;
+
+        //Quando o funcionário possuir 1 ou mais filhos, você deve calcular um adicional de 10% no valor total do salário.
+
+        if (funcionario.possuiFilho()){
+            salarioDevido += contratoTrabalho.calcularAdicionalFilho(salarioDevido);
+        }
+
         return salarioDevido;
 
     }
