@@ -19,8 +19,9 @@ public class Principal {
         contratoTrabalho.valorHoraExtra = 2;
         contratoTrabalho.valorHoraNormal = 1;
 
-        double salarioDevido = folhaPagamento.calcularSalario(QuantidadeHorasNormaisTrabalhadas,
+        Holerite holerite = folhaPagamento.calcularSalario(QuantidadeHorasNormaisTrabalhadas,
                 QuantidadeHorasExtrasTrabalhadas, contratoTrabalho);
-        System.out.println(" Salário devido:" + salarioDevido );
+        holerite.imprimirRelatorio();
+
     }
 }
